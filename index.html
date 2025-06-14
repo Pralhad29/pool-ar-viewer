@@ -4,31 +4,31 @@
     <title>View Pools in AR</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
-      body { margin: 0; text-align: center; background: #f8f8f8; font-family: sans-serif; }
+      body { margin: 0; text-align: center; background: #f4f4f4; font-family: sans-serif; }
       model-viewer { width: 100vw; height: 80vh; }
       .btns { margin-top: 10px; }
-      button { margin: 0 10px; padding: 10px 20px; font-size: 16px; }
+      button { margin: 0 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
     </style>
   </head>
   <body>
-    <h2>View Your Dream Pool in AR</h2>
+    <h2>Try 3 Pool Styles in AR</h2>
 
-    <model-viewer id="viewer" src="square.glb" ar ar-modes="scene-viewer quick-look webxr" camera-controls auto-rotate alt="3D Pool Model">
+    <model-viewer id="viewer" src="pool.glb" ar ar-modes="scene-viewer quick-look webxr" camera-controls auto-rotate alt="3D Pool Model">
       <button slot="ar-button">View in Your Backyard</button>
     </model-viewer>
 
     <div class="btns">
-      <button onclick="switchPool('square')">⬅️ Square Inground</button>
-      <button onclick="switchPool('infinity')">Infinity Pool</button>
-      <button onclick="switchPool('freeform')">Freeform Above Ground ➡️</button>
+      <button onclick="switchPool('pool')">⬅️ Square Inground</button>
+      <button onclick="switchPool('pool_abv')">Infinity Pool</button>
+      <button onclick="switchPool('pool_free_size')">Freeform Above Ground ➡️</button>
     </div>
 
     <script>
       const viewer = document.getElementById('viewer');
       const models = {
-        square: 'square.glb',
-        infinity: 'infinity.glb',
-        freeform: 'freeform.glb'
+        pool: 'pool.glb',
+        pool_abv: 'pool_abv.glb',
+        pool_free_size: 'pool_free_size.glb'
       };
       function switchPool(type) {
         viewer.src = models[type];
